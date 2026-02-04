@@ -12,13 +12,18 @@ class Job extends Model {
 
     protected $table = 'job_listings';
 
-    protected $fillable = ['title', 'salary', 'employer_id'];
+    protected $fillable = ['title', 'salary', 'employer_id', 'location_id'];
 
     //protected $gaurded = [];
 
     public function employer() 
     {
         return $this->belongsTo(Employer::class);
+    }
+
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
     }
 
     public function tags()

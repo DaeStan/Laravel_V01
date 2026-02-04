@@ -30,12 +30,14 @@ class JobController extends Controller
     {
         request()->validate([
             'title' => ['required', 'min:3'],
-            'salary' => ['required']
+            'salary' => ['required'],
+            //'location_id' => ['required']
         ]);
 
         Job::create([
             'title' => request('title'),
             'salary' => request('salary'),
+            //'location_id' => 1,
             'employer_id' => 1
         ]);
 
@@ -51,12 +53,14 @@ class JobController extends Controller
     {
         request()->validate([
             'title' => ['required', 'min:3'],
-            'salary' => ['required']
+            'salary' => ['required'],
+            //'location_id' => ['required']
         ]);
 
         $job->update([
             'title' => request('title'),
             'salary' => request('salary'),
+            //'location_id' => request($job->location->name),
         ]);
 
         return redirect('/jobs/' . $job->id);

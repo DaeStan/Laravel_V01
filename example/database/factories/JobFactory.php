@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Employer;
+use App\Models\Location;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,6 +21,7 @@ class JobFactory extends Factory
         return [
             'title' => fake()->jobTitle(),
             'employer_id' => Employer::factory(),
+            'location_id' => Location::factory(),
             'salary' => '$50,000',
         ];
     }

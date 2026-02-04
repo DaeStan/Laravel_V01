@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full bg-gray-100">
+<html lang="en" class="h-full bg-[#ccdae5]">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +23,7 @@
       <div class="flex h-16 items-center justify-between">
         <div class="flex items-center">
           <div class="shrink-0">
-            <img src="https://laracasts.com/images/logo/logo-triangle.svg" alt="Your Company" class="size-8" />
+            <img src="https://www.svgrepo.com/show/416638/work-ui-job.svg" alt="Your Company" class="size-8" />
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
@@ -48,7 +48,7 @@
               <button class="relative flex max-w-xs items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
                 <span class="absolute -inset-1.5"></span>
                 <span class="sr-only">Open user menu</span>
-                <img src="https://laracasts.com/images.lary-ai-face.svg" alt="" class="size-8 rounded-full outline -outline-offset-1 outline-white/10" />
+                <img src="https://www.svgrepo.com/show/132760/man.svg" alt="" class="size-8 rounded-full outline -outline-offset-1 outline-white/10" />
               </button>
           </div>
         </div>
