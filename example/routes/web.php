@@ -1,25 +1,20 @@
 <?php
 
+use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Job;
+use GuzzleHttp\Promise\Create;
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::view('/', 'home');
+Route::resource('jobs', JobController::class);
+Route::view('/contact', 'contact');
 
-Route::get('/jobs', function (){
-    $jobs = Job::with('employer')->get();
-    
-    return view('jobs',[
-        'jobs' => $jobs
-    ]);
-});
-
-Route::get('/jobs/{id}', function ($id) {
-    $job = Job::find($id);
-    return view('job', ['job' => $job]);
-});
-
-Route::get('/contact', function () {
-    return view('contact');
-});
+// Route::controller(JobController::class)->group(function (){
+//     Route::get('/jobs', 'index');
+//     Route::get('/jobs/create', 'create');
+//     Route::get('/jobs/{job}', 'show');
+//     Route::post('/jobs', 'store');
+//     Route::get('/jobs/{job}/edit', 'edit');
+//     Route::patch('/jobs/{job}', 'update');
+//     Route::delete('/jobs/{job}', 'destroy');
+// }); 
