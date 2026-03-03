@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\UserConfirmation;
+use App\Mail\UserFollowUp;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterUserController extends Controller
 {
@@ -26,6 +29,14 @@ class RegisterUserController extends Controller
         $user = User::create($attributes);
 
         Auth::login($user);
+
+        Mail::to($user)->queue(
+            new UserConfirmation($user)
+            );
+
+        Mail::to($user)->later(now()->addMinutes(10),
+            new UserFollowUp($user)
+        );
 
         return redirect('/jobs');
     }
